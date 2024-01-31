@@ -23,8 +23,42 @@
     animation: blink 1s step-start infinite;
   }
 
+  .blinking-cursor-white {
+    font-weight: 100;
+    color: #ffffff;
+    animation: blink 1s step-start infinite;
+  }
+
 .background-gif {
     background-image: url('../assets/page0.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 400px auto; /* GIF의 원래 크기 */
+}
+
+.background-1 {
+    background-image: url('../assets/page1.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 400px auto; /* GIF의 원래 크기 */
+}
+
+.background-2 {
+    background-image: url('../assets/page2.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 400px auto; /* GIF의 원래 크기 */
+}
+
+.background-3 {
+    background-image: url('../assets/page3.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 400px auto; /* GIF의 원래 크기 */
+}
+
+.background-4 {
+    background-image: url('../assets/page4.png');
     background-repeat: no-repeat;
     background-position: center;
     background-size: 400px auto; /* GIF의 원래 크기 */

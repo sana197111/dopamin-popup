@@ -9,7 +9,7 @@ function Poster() {
     useEffect(() => {
         const timer = setTimeout(() => {
             navigate("/main");
-        }, 1500);
+        }, 2000);
 
         return () => clearTimeout(timer);
     }, [navigate]);
