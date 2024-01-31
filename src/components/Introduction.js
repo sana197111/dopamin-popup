@@ -43,22 +43,14 @@ function Introduction() {
 
     return (
         <div className="min-h-screen overflow-y-auto font-lab-digital max-h-screen p-4 flex flex-col items-center justify-center bg-black background-gif">
-            <div style={{
-                borderRadius: '5px',
-                backgroundColor: 'rgba(0, 0, 0, 0.7)', // 투명도 0.5의 검은색
-                padding: '40px', 
-                maxWidth: '700px', 
-                textAlign: 'center', 
-                margin: 'auto'
-            }}>
-                <h1 className="mb-10 text-center font-DNFBitBitv2 text-5xl" style={{
+                <h1 className="mb-10 text-center font-DNFBitBitv2 text-4xl" style={{
                     background: "linear-gradient(#75BF42, #A3CC40)",
                     WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent"
                 }}>
                     DOCKPAMINE<br/>
                 </h1>
-                <h3 className="mb-8 text-center text-xl" style={{color: "#A3CC40"}}>
+                <h3 className="mb-8 text-center text-lg" style={{color: "#A3CC40"}}>
                 <span dangerouslySetInnerHTML={{__html: text}}></span>
                 {typingComplete && <span className="blinking-cursor">|</span>}
                 </h3>
@@ -74,7 +66,6 @@ function Introduction() {
                 </Link>
                 {showPopup && <PrivacyPolicyPopup onClose={handleClosePopup} />}
             </div>        
-        </div>
     );
 }
 

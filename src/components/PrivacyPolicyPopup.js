@@ -1,6 +1,6 @@
 function PrivacyPolicyPopup({ onClose }) {
     return (
-        <div className="privacy-popup">
+        <div className="privacy-popup min-h-screen overflow-y-auto">
             <button className="close-button" onClick={onClose}>닫기</button>
             <div style={{ color: "white" }}>
                 <h3 style={{ color: "#A3CC40" }}><strong>개인정보 수집·이용·제공 동의서</strong></h3>

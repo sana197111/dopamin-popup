@@ -39,14 +39,14 @@ function Main() {
             )}
             {isImageLoaded && (
                 <div className="min-h-screen overflow-y-auto font-lab-digital max-h-screen p-4 flex flex-col items-center justify-center bg-black background-gif">
-                        <h1 className="mb-10 text-center font-DNFBitBitv2 text-5xl" style={{
+                        <h1 className="mb-6 text-center font-DNFBitBitv2 text-5xl" style={{
                             background: "linear-gradient(#75BF42, #A3CC40)",
                             WebkitBackgroundClip: "text",
                             WebkitTextFillColor: "transparent"
                         }}>
                             독파민 팝업<br/>
                         </h1>
-                        <h3 className="mb-8 text-center text-4xl" style={{color: "#A3CC40"}}>
+                        <h3 className="mb-8 text-center text-2xl" style={{color: "#ffffff"}}>
                             <span dangerouslySetInnerHTML={{__html: text}}></span>
                             {typingComplete && <span className="blinking-cursor">|</span>}
                         </h3>
