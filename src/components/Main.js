@@ -53,7 +53,7 @@ function Main() {
                         <p className="text-center mb-4" style={{color: "#A3CC40"}}>
                             묵묵한 페이지
                         </p>
-                        <h5 className="mb-2 text-center text-l" style={{color: "#A3CC40"}}>
+                        <h5 className="mb-2 text-center text-l" style={{color: "#ffffff"}}>
                             Page 1 해킹 | Page 2 에러 <br/> Page 3 스캔 | Page 4 리셋
                         </h5>
                         <Link to="/introduction">
