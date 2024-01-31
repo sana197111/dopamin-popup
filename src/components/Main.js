@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import "./style.css";
-import poster from './poster.png';
 
 function Main() {
     const fullText = "나의 뇌구조를 독파하다.<br/>MZ를 위한 도파민 해독서";
     const [text, setText] = useState('');
     const [typingComplete, setTypingComplete] = useState(false);
-    const [isImageLoaded, setIsImageLoaded] = useState(false);
 
     useEffect(() => {
         if (!typingComplete) {
@@ -21,23 +19,7 @@ function Main() {
         }
     }, [text, typingComplete]);
 
-    const handleImageLoad = () => {
-        setIsImageLoaded(true);
-    };
-
     return (
-        <>
-            {!isImageLoaded && (
-                <div style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    background: `url(${poster}) center center / cover no-repeat, #000000`
-                }}>
-                    <img src={poster} onLoad={handleImageLoad} style={{ display: 'none' }} alt="poster" />
-                </div>
-            )}
-            {isImageLoaded && (
                 <div className="min-h-screen overflow-y-auto font-lab-digital max-h-screen p-4 flex flex-col items-center justify-center bg-black background-gif">
                         <h1 className="mb-6 text-center font-DNFBitBitv2 text-5xl" style={{
                             background: "linear-gradient(#75BF42, #A3CC40)",
@@ -63,8 +45,5 @@ function Main() {
                         </Link>
                     </div>        
             )}
-        </>
-    );
-}
 
 export { Main };
