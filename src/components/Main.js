@@ -39,15 +39,7 @@ function Main() {
             )}
             {isImageLoaded && (
                 <div className="min-h-screen overflow-y-auto font-lab-digital max-h-screen p-4 flex flex-col items-center justify-center bg-black background-gif">
-                    <div style={{
-                        borderRadius: '5px',
-                        backgroundColor: 'rgba(0, 0, 0, 0.7)',
-                        padding: '40px',
-                        maxWidth: '700px',
-                        textAlign: 'center',
-                        margin: 'auto'
-                    }}>
-                        <h1 className="mb-10 text-center font-DNFBitBitv2 text-7xl" style={{
+                        <h1 className="mb-10 text-center font-DNFBitBitv2 text-5xl" style={{
                             background: "linear-gradient(#75BF42, #A3CC40)",
                             WebkitBackgroundClip: "text",
                             WebkitTextFillColor: "transparent"
@@ -70,7 +62,6 @@ function Main() {
                             </button>
                         </Link>
                     </div>        
-                </div>
             )}
         </>
     );

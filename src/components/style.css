@@ -24,7 +24,7 @@
   }
 
 .background-gif {
-    background-image: url('./background1.gif');
+    background-image: url('../assets/page0.png');
     background-repeat: no-repeat;
     background-position: center;
     background-size: 480px 800px; /* GIF의 원래 크기 */
