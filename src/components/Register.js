@@ -50,11 +50,11 @@ function Register() {
                     <p className="text-center mb-2 font-DNFBitBitv2 text-xl" style={{color: "#A3CC40"}}>칭호 선택</p>
                     <select className="w-full mb-8 max-w-xs border border-gray-300 hover:border-gray-400 focus:border-A3CC40 text-white bg-black px-4 py-2 mb-4 rounded transition duration-300 ease-in-out" value={title} onChange={(e) => setTitle(e.target.value)}>
                         <option value="" disabled>칭호 선택하기</option>
-                        <option value="owner">도파민의 주인</option>
-                        <option value="slave">일평생 도파민의 노예</option>
+                        <option value="owner">도파민을 다스리는 현신</option>
+                        <option value="slave">도파민 초월자</option>
                         <option value="baemin-vip">배민 1억 VIP 이용객</option>
-                        <option value="spicy-killer">스파이시 킬러</option>
-                        <option value="dopamine-kid">도파민 어린이</option>
+                        <option value="spicy-killer">엽떡 스파이시 킬러</option>
+                        <option value="dopamine-kid">도파민 키드</option>
                     </select>
                     <p className="text-center mb-2 font-DNFBitBitv2 text-xl" style={{color: "#A3CC40"}}>아이디(이름) 입력</p>
                     <input type="text" placeholder="이름 입력" value={name} onChange={(e) => setName(e.target.value)} className="w-full max-w-xs border border-gray-300 hover:border-gray-400 focus:border-A3CC40 text-white bg-black px-4 py-2 mb-4 rounded transition duration-300 ease-in-out" />

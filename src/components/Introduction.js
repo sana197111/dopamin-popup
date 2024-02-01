@@ -4,7 +4,7 @@ import "./style.css";
 import { PrivacyPolicyPopup } from './PrivacyPolicyPopup';
 
 function Introduction() {
-    const fullText = "도파민 문제 해결을 위해<br/>독파민 팝업에 참여해주셔서 감사합니다.<br/><br/>해킹된 도파민 뇌를 해독하기 위해서는<br/>의뢰인의 정보 등록이 필요합니다.";
+    const fullText = "독파민 문제를 해결하기 위해<br/>독파민 팝업에 참여해주셔서 감사합니다.<br/><br/>해킹된 도파민 뇌를 해독하기 위해서는<br/>의뢰인의 정보 등록이 필요합니다.";
     const [text, setText] = useState('');
     const [typingComplete, setTypingComplete] = useState(false);
     const [showPolicy, setShowPolicy] = useState(false);
