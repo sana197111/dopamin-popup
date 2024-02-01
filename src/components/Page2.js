@@ -1,72 +1,69 @@
-import React, { useState } from 'react';
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import errorImage from "../assets/error.png";
 import "./style.css";
 
 function Page2() {
-    const navigate = useNavigate();
-    const [inputs, setInputs] = useState(['', '', '', '']);
+    const [errorImages, setErrorImages] = useState([]);
+    const [zIndexCounter, setZIndexCounter] = useState(1);
 
-    const updateInput = (index, value) => {
-        let newInputs = [...inputs];
-        newInputs[index] = value;
-        setInputs(newInputs);
+    useEffect(() => {
+        if (errorImages.length < 10) { // 10개 미만일 때만 이미지 추가
+            const timer = setTimeout(() => {
+                setErrorImages(prevImages => [
+                    ...prevImages,
+                    {
+                        id: prevImages.length,
+                        style: {
+                            right: `${3 * prevImages.length}px`,
+                            bottom: `${3 * prevImages.length}px`,
+                            zIndex: zIndexCounter
+                        }
+                    }
+                ]);
+                setZIndexCounter(zIndexCounter + 1);
+            }, 1000); // 1초 후에 실행
 
-        // Automatically move focus to next input if not the last one
-        if (index < 3 && value) {
-            document.getElementById(`input-${index + 1}`).focus();
+            return () => clearTimeout(timer); // 컴포넌트 unmount 시 타이머 제거
         }
-    };
-
-    const checkPassword = () => {
-        if (inputs.join('').toLowerCase() === 'read') {
-            alert('정답입니다! Page2로 이동해주세요...');
-            navigate('/page2');
-        } else {
-            alert('잘못된 패스워드입니다. 다시 시도해주세요!');
-            setInputs(['', '', '', '']); // Reset inputs
-        }
-    };
+    }, [errorImages, zIndexCounter]); // errorImages와 zIndexCounter가 변경될 때마다 이펙트 실행
 
     return (
                 <div className="min-h-screen overflow-y-auto font-lab-digital max-h-screen p-4 flex flex-col items-center justify-center bg-black background-2">
-                        <h1 className="mt-32 mb-6 text-center font-DNFBitBitv2 text-5xl" style={{
+                        <div className="red-flash-animation fixed top-0 left-0 right-0 bottom-0 z-10" />
+
+                        <h1 className="mt-32 mb-4 text-center font-DNFBitBitv2 text-5xl" style={{
                             background: "linear-gradient(#75BF42, #A3CC40)",
                             WebkitBackgroundClip: "text",
                             WebkitTextFillColor: "transparent"
                         }}>
                             에러<br/>
                         </h1>
-                        <p className="text-center mb-4" style={{color: "#A3CC40"}}>
+                        <p className="text-center" style={{color: "#A3CC40"}}>
                             [ Error ]
                         </p>
-                            <p className="text-center mb-6" style={{color: "#ffffff"}}>
-                                <span className="font-DNFBitBitv2" style={{color: "#A3CC40"}}>에러 발생!!!<br/><br/></span>
-                                독이 되는 <span style={{color: "#A3CC40"}}>독파민</span>은<br/>
-                                우리의 <span style={{color: "#A3CC40"}}>뇌구조에 침투</span>하여 <br/>
-                                오직 <span style={{color: "#A3CC40"}}>쾌락</span>만을 <span style={{color: "#A3CC40"}}>추구</span>하게 만듭니다. <br/>
-                                <span style={{color: "#A3CC40"}}>쾌락</span>을 통해 <span style={{color: "#A3CC40"}}>잠깐</span>은 즐거울 수 있으나, <br/>
-                                이는 결국 우리에게 더욱 큰 <span style={{color: "#A3CC40"}}>고통</span>으로 돌아옵니다 <br/>
-                                해킹 당한 뇌구조를 되찾기 위해서 <br/>
-                                <span style={{color: "#A3CC40"}}>PASSWORD</span>를 찾아보세요.<br/>
-                            </p>
-                            <div className="password-container">
-                                {inputs.map((input, index) => (
-                                    <input
-                                        key={index}
-                                        id={`input-${index}`}
-                                        type="text"
-                                        placeholder="•"
-                                        value={input}
-                                        onChange={(e) => updateInput(index, e.target.value)}
-                                        maxLength="1"
-                                        className="password-input"
-                                        onKeyUp={(e) => e.key === 'Enter' && checkPassword()}
-                                    />
-                                ))}
-                            </div>
-                            <button onClick={checkPassword} className="font-DNFBitBitv2 button-active mt-2 mb-8 px-6 py-2 border rounded hover:bg-gray-500 hover:text-white active:bg-gray-700 active:text-white transition duration-300 ease-in-out">
-                                확인
-                            </button>
+                        {errorImages.map(image => (
+                            <img
+                                key={image.id}
+                                src={errorImage}
+                                alt={`Error ${image.id}`}
+                                className="error-animation"
+                                style={{
+                                    position: 'absolute',
+                                    width: '20%',
+                                    height: 'auto',
+                                    ...image.style
+                                }}
+                            />
+                        ))}
+                        <p className="text-center mb-6" style={{color: "#ffffff"}}>
+                            <span style={{color: "#A3CC40"}}>독파민</span>은 이미 <span style={{color: "#A3CC40"}}>우리의 삶 속에 스며들어</span><br/>
+                            <span style={{color: "#A3CC40"}}>읽기 능력을 손상</span>시키고 있습니다. <br/>
+                            다음 <span style={{color: "#A3CC40"}}>문해력 테스트</span>를 통해 <br/>
+                            <span style={{color: "#A3CC40"}}>나의 뇌구조에 에러</span>가 없는지 확인해 보세요
+                        </p>
+                        <button className="font-DNFBitBitv2 button-active mt-2 mb-8 px-6 py-2 border rounded hover:bg-gray-500 hover:text-white active:bg-gray-700 active:text-white transition duration-300 ease-in-out">
+                            문해력 테스트
+                        </button>
                     </div>        
             )}
 

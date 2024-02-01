@@ -83,6 +83,31 @@
     animation: glitch 2s infinite;
   }
 
+  @keyframes redFlash {
+    0%, 100% {
+      background-color: transparent;
+      opacity: 0;
+    }
+    50% {
+      background-color: red;
+      opacity: 0.2;
+    }
+  }
+  
+  .red-flash-animation {
+    animation: redFlash 1.5s infinite;
+  }
+
+  .error-animation {
+    animation: moveError 1s forwards; /* 애니메이션 이름, 지속 시간, 채우기 모드 설정 */
+  }
+  
+  @keyframes moveError {
+    to {
+      transform: translate(3px, 3px); /* 오른쪽 아래로 3px 움직임 */
+    }
+  }
+
 .button-active:hover {
     background-color: gray;
     color: white;

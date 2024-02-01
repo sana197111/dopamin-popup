@@ -41,7 +41,7 @@ function Page1() {
                         </p>
                             <p className="text-center mb-6" style={{color: "#ffffff"}}>
                                 <div className="glitch">
-                                    <span className="font-DNFBitBitv2" style={{color: "#A3CC40"}}>00님의 뇌는 해킹당했습니다<br/><br/></span>
+                                    <span className="font-DNFBitBitv2" style={{color: "#A3CC40"}}>00님의 뇌는<br/>해킹당했습니다<br/><br/></span>
                                 </div>
                                 독이 되는 <span style={{color: "#A3CC40"}}>독파민</span>은<br/>
                                 우리의 <span style={{color: "#A3CC40"}}>뇌구조에 침투</span>하여 <br/>
