@@ -15,8 +15,8 @@ function Page2() {
                     {
                         id: prevImages.length,
                         style: {
-                            top: `calc(8% + ${prevImages.length * 10}px)`, // 위쪽에서 아래로 10px씩 떨어져서 쌓임
-                            right: `calc(40% + ${10 * prevImages.length}px)`,
+                            top: `calc(5% + ${prevImages.length * 5}px)`, // 위쪽에서 아래로 10px씩 떨어져서 쌓임
+                            right: `calc(20% + ${5 * prevImages.length}px)`,
                             transform: 'translateX(-50%)', // 중앙에서 시작하도록 조정
                             zIndex: zIndexCounter // zIndex 값을 증가
                         }
