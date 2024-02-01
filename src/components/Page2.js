@@ -8,25 +8,26 @@ function Page2() {
     const [zIndexCounter, setZIndexCounter] = useState(1);
 
     useEffect(() => {
-        if (errorImages.length < 10) { // 10개 미만일 때만 이미지 추가
+        if (errorImages.length < 10) { // 최대 10개의 이미지만 추가
             const timer = setTimeout(() => {
                 setErrorImages(prevImages => [
                     ...prevImages,
                     {
                         id: prevImages.length,
                         style: {
-                            right: `${3 * prevImages.length}px`,
-                            bottom: `${3 * prevImages.length}px`,
-                            zIndex: zIndexCounter
+                            top: `calc(8% + ${prevImages.length * 10}px)`, // 위쪽에서 아래로 10px씩 떨어져서 쌓임
+                            right: `calc(40% + ${10 * prevImages.length}px)`,
+                            transform: 'translateX(-50%)', // 중앙에서 시작하도록 조정
+                            zIndex: zIndexCounter // zIndex 값을 증가
                         }
                     }
                 ]);
                 setZIndexCounter(zIndexCounter + 1);
-            }, 1000); // 1초 후에 실행
-
+            }, 1000); // 1초마다 실행
+    
             return () => clearTimeout(timer); // 컴포넌트 unmount 시 타이머 제거
         }
-    }, [errorImages, zIndexCounter]); // errorImages와 zIndexCounter가 변경될 때마다 이펙트 실행
+    }, [errorImages, zIndexCounter]);
 
     return (
                 <div className="min-h-screen overflow-y-auto font-lab-digital max-h-screen p-4 flex flex-col items-center justify-center bg-black background-2">
