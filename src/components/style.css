@@ -71,6 +71,18 @@
     transition: background-color 300ms ease-in-out, color 300ms ease-in-out;
 }
 
+@keyframes glitch {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    10%, 30%, 50%, 70% { transform: scale(0.9) rotate(-1deg); }
+    20%, 40%, 60% { transform: scale(1.1) rotate(1deg); }
+    80% { transform: scale(1) rotate(5deg); }
+    90% { transform: scale(1) rotate(0deg); }
+  }
+  
+  .glitch {
+    animation: glitch 1s infinite;
+  }
+
 .button-active:hover {
     background-color: gray;
     color: white;
@@ -136,4 +148,19 @@ input[type="checkbox"]:checked + label::after {
     border: solid #A3CC40;
     border-width: 0 3px 3px 0;
     transform: rotate(45deg);
+}
+
+.password-container {
+    /* Container for password inputs */
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.password-input {
+    /* Style for each password input */
+    width: 40px;
+    text-align: center;
+    margin: 0 10px;
+    /* Add additional styles such as border, background, etc. */
 }

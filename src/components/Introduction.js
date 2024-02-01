@@ -35,7 +35,7 @@ function Introduction() {
           if (text.length < fullText.length) {
             setTimeout(() => {
               setText(fullText.slice(0, text.length + 1));
-            }, 80);
+            }, 60);
           } else {
             setTypingComplete(true);
             setTimeout(() => setShowPolicy(true), 500); // 타이핑이 끝난 후 0.5초 후에 개인정보 정책 표시
