@@ -1,40 +1,83 @@
 import React, { useState } from 'react';
-// import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'; // useNavigate 훅 임포트
 import "./style.css";
-import testImage from '../assets/testImage.png'; // 720x2440 크기의 이미지 경로를 적절히 수정하세요.
 
 function Page2Test() {
     const [selectedOption, setSelectedOption] = useState(null);
+    const [isSubmitted, setIsSubmitted] = useState(false);
+    const navigate = useNavigate(); // useNavigate 훅 사용
 
     const handleOptionSelect = (option) => {
-        setSelectedOption(option);
+        setSelectedOption(selectedOption === option ? null : option);
     };
 
     const handleSubmit = () => {
-        alert(`You selected option ${selectedOption}. Checking...`);
-        // 체점 로직 추가
+        if (!selectedOption) {
+            alert("옵션을 선택해주세요.");
+        } else if (!isSubmitted) {
+            alert("정답이 아닙니다.");
+            setIsSubmitted(true);
+        } else {
+            navigate('/page3'); // '/page3'로 페이지 이동
+        }
     };
 
     return (
         <div className="min-h-screen overflow-y-auto max-h-screen p-4 flex flex-col items-center justify-center bg-black background-1">
-            <div className="image-container">
-                <img src={testImage} alt="Test" style={{ width: '100%' }} />
+            <div className="image-container pl-4 pr-4 pt-96 mt-96">
+                <h1 className="mb-6 mt-36 text-center font-DNFBitBitv2 text-4xl" style={{
+                            WebkitBackgroundClip: "text"
+                        }}>
+                            문해력 테스트<br/>
+                </h1>
+                <p>1. 다음은 근로기준법 규정 중 일부이다. ( ) 안에 들어갈 말로 가장 적절한 것은?</p>
+                <div className="question-box">
+                    <strong>제 60조(연차 유급휴가)<br/></strong>
+                    1) 사용자는 1년간 80퍼센트 이상 출근한 근로자에게 10일의 유급휴가를 주어야 한다.<br/>
+                    2) 사용자는 3년 이상 계속하여 근로한 근로자에게는 제 1항에 따른 휴가에 최초 1년을 
+                    초과하는 계속 근로 연수 매 2년에 대하여 1일을 가산한 유급휴가를 주어야 한다.
+                </div>
+                <div className="question-box">
+                    <p>나는 올해 입사 만 13년차니까 이번 해에는 급여 산정에 포함되는 연차를 최대 (___)일 쓸 수 있겠군</p>
+                </div>
+                <div className="mb-4">
+                    <div onClick={() => handleOptionSelect('A')} className={`option mt-4 mb-1 text-left ${selectedOption === 'A' ? 'text-red-500' : 'text-black'}`}>① 10일</div>
+                    <div onClick={() => handleOptionSelect('B')} className={`option mb-1 text-left ${selectedOption === 'B' ? 'text-red-500' : 'text-black'}`}>② 11일</div>
+                    <div onClick={() => handleOptionSelect('C')} className={`option mb-1 text-left ${selectedOption === 'C' ? 'text-red-500' : 'text-black'}`}>③ 12일</div>
+                    <div onClick={() => handleOptionSelect('D')} className={`option text-left ${selectedOption === 'D' ? 'text-red-500' : 'text-black'}`}>④ 13일</div>
+                </div>
+                {isSubmitted && (
+                    <div className="text-red-500 mb-8">
+                        <p>1번의 정답은 16일이었습니다.</p>
+                    </div>
+                )}
+                <p>2. 다음은 근로기준법 규정 중 일부이다. ( ) 안에 들어갈 말로 가장 적절한 것은?</p>
+                <div className="question-box">
+                    <strong>제 56조(연장 · 야간 및 휴일 근로)<br/></strong>
+                    (1) 사용자는 연장근로에 대하여는 통상임금의 100분의 50 이상을 가산하여 근로자에게 
+                    지급하여야 한다.<br/>
+                    (2) 제 1항에도 불구하고 사용자는 휴일근로에 대하여는 다음 각 호의 기준에 따른 금액 이상을 
+                    가산하여 근로자에게 지급하여야 한다.<br/>
+                      ㄱ. 8시간 이내의 휴일근로: 통산임금의 100분의 50<br/>
+                      ㄴ. 8시간을 초과한 휴일근로: 통상임금의 100분의 100<br/>
+                    (3) 사용자는 야간근로(오후 10시부터 다음 날 오전 6시 사이의 근로)에 대하여는 통상임금의 100분의 50 이상을 가산하여 근로자에게 지급하여야 한다.
+                </div>
+                <div className="question-box">
+                    <p>나는 원래 9-18시까지 일하는데, 올해 10번 야근으로 새벽 1시까지 일을 했으니, 올해에 (___)원 만큼의 수당을 추가로 받을 수 있겠군<br/> (통상임금은 시간 당 1만원임)</p>
+                </div>
+                <div className="mb-4">
+                    <div onClick={() => handleOptionSelect('A')} className={`option mt-4 mb-1 text-left ${selectedOption === 'A' ? 'text-red-500' : 'text-black'}`}>① 70만원</div>
+                    <div onClick={() => handleOptionSelect('B')} className={`option mb-1 text-left ${selectedOption === 'B' ? 'text-red-500' : 'text-black'}`}>② 90만원</div>
+                    <div onClick={() => handleOptionSelect('C')} className={`option mb-1 text-left ${selectedOption === 'C' ? 'text-red-500' : 'text-black'}`}>③ 120만원</div>
+                    <div onClick={() => handleOptionSelect('D')} className={`option text-left ${selectedOption === 'D' ? 'text-red-500' : 'text-black'}`}>④ 135만원</div>
+                </div>
+                {isSubmitted && (
+                    <div className="text-red-500 mt-4 mb-4">
+                        <p>2번의 정답은 130만원이었습니다.</p>
+                    </div>
+                )}
+                <button onClick={handleSubmit} className="font-DNFBitBitv2 button mt-5 mb-16 px-4 py-2 border rounded" style={{background: "linear-gradient(#75BF42, #A3CC40)", width: "fit-content", color: "white"}}>{isSubmitted ? "다음 페이지로 이동하기" : "체점하기"}</button>
             </div>
-            <div className="question-box">
-                <p>1. 다음은 근로기준법 규정 중 일부입니다...</p>
-                <div onClick={() => handleOptionSelect('A')} className={`option ${selectedOption === 'A' ? 'selected' : ''}`}>① 10</div>
-                <div onClick={() => handleOptionSelect('B')} className={`option ${selectedOption === 'B' ? 'selected' : ''}`}>② 11</div>
-                <div onClick={() => handleOptionSelect('C')} className={`option ${selectedOption === 'C' ? 'selected' : ''}`}>③ 12</div>
-                <div onClick={() => handleOptionSelect('D')} className={`option ${selectedOption === 'D' ? 'selected' : ''}`}>④ 13</div>
-            </div>
-            <div className="question-box">
-                <p>2. 다음은 근로기준법 규정 중 일부입니다...</p>
-                <div onClick={() => handleOptionSelect('E')} className={`option ${selectedOption === 'E' ? 'selected' : ''}`}>① 70만</div>
-                <div onClick={() => handleOptionSelect('F')} className={`option ${selectedOption === 'F' ? 'selected' : ''}`}>② 90만</div>
-                <div onClick={() => handleOptionSelect('G')} className={`option ${selectedOption === 'G' ? 'selected' : ''}`}>③ 100만</div>
-                <div onClick={() => handleOptionSelect('H')} className={`option ${selectedOption === 'H' ? 'selected' : ''}`}>④ 105만</div>
-            </div>
-            <button onClick={handleSubmit} className="button-check">체점하기</button>
         </div>
     );
 }
