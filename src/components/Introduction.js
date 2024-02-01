@@ -63,8 +63,8 @@ function Introduction() {
                             <label htmlFor="privacyPolicy" className="ml-2">개인정보 이용정책에 동의함</label>
                             <button style={{ textDecoration: "underline", border: "none", background: "none" }} onClick={handleShowPopup}>[보기]</button>
                         </div>
-                        <Link to={isAgreed ? "/author" : "#"} className="my-2 w-full text-center">
-                            <button className="button-active mt-4 mb-4 px-6 py-2 border rounded hover:bg-gray-500 hover:text-white active:bg-gray-700 active:text-white transition duration-300 ease-in-out" onClick={handleClick}>
+                        <Link to={isAgreed ? "/register" : "#"} className="my-2 w-full text-center">
+                            <button className="font-DNFBitBitv2 button-active mt-4 mb-4 px-6 py-2 border rounded hover:bg-gray-500 hover:text-white active:bg-gray-700 active:text-white transition duration-300 ease-in-out" onClick={handleClick}>
                                 체험 시작하기
                             </button>
                         </Link>

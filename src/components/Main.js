@@ -39,7 +39,7 @@ function Main() {
                             Page 1 해킹 | Page 2 에러 <br/> Page 3 스캔 | Page 4 리셋
                         </h5>
                         <Link to="/introduction">
-                            <button className="button-active mt-8 mb-8 px-6 py-2 border rounded hover:bg-gray-500 hover:text-white active:bg-gray-700 active:text-white transition duration-300 ease-in-out">
+                            <button className="font-DNFBitBitv2 button-active mt-8 mb-8 px-6 py-2 border rounded hover:bg-gray-500 hover:text-white active:bg-gray-700 active:text-white transition duration-300 ease-in-out">
                                 체험 시작하기
                             </button>
                         </Link>
