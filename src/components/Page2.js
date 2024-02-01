@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import "./style.css";
 
-function Page1() {
+function Page2() {
     const navigate = useNavigate();
     const [inputs, setInputs] = useState(['', '', '', '']);
 
@@ -28,21 +28,19 @@ function Page1() {
     };
 
     return (
-                <div className="min-h-screen overflow-y-auto font-lab-digital max-h-screen p-4 flex flex-col items-center justify-center bg-black background-1">
+                <div className="min-h-screen overflow-y-auto font-lab-digital max-h-screen p-4 flex flex-col items-center justify-center bg-black background-2">
                         <h1 className="mt-32 mb-6 text-center font-DNFBitBitv2 text-5xl" style={{
                             background: "linear-gradient(#75BF42, #A3CC40)",
                             WebkitBackgroundClip: "text",
                             WebkitTextFillColor: "transparent"
                         }}>
-                            해킹<br/>
+                            에러<br/>
                         </h1>
                         <p className="text-center mb-4" style={{color: "#A3CC40"}}>
-                            [ Hacking ]
+                            [ Error ]
                         </p>
                             <p className="text-center mb-6" style={{color: "#ffffff"}}>
-                                <div className="glitch">
-                                    <span className="font-DNFBitBitv2" style={{color: "#A3CC40"}}>00님의 뇌는 해킹당했습니다<br/><br/></span>
-                                </div>
+                                <span className="font-DNFBitBitv2" style={{color: "#A3CC40"}}>에러 발생!!!<br/><br/></span>
                                 독이 되는 <span style={{color: "#A3CC40"}}>독파민</span>은<br/>
                                 우리의 <span style={{color: "#A3CC40"}}>뇌구조에 침투</span>하여 <br/>
                                 오직 <span style={{color: "#A3CC40"}}>쾌락</span>만을 <span style={{color: "#A3CC40"}}>추구</span>하게 만듭니다. <br/>
@@ -72,4 +70,4 @@ function Page1() {
                     </div>        
             )}
 
-export { Page1 };
+export { Page2 };

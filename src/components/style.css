@@ -80,7 +80,7 @@
   }
   
   .glitch {
-    animation: glitch 1s infinite;
+    animation: glitch 2s infinite;
   }
 
 .button-active:hover {
