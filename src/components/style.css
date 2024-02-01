@@ -96,8 +96,9 @@
   
   .red-flash-animation {
     animation: redFlash 1.5s infinite;
+    pointer-events: none; 
   }
-
+  
   .error-animation {
     animation: moveError 1s forwards; /* 애니메이션 이름, 지속 시간, 채우기 모드 설정 */
   }

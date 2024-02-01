@@ -6,6 +6,7 @@ import { Introduction } from './components/Introduction';
 import { Register } from './components/Register';
 import { Page1 } from './components/Page1';
 import { Page2 } from './components/Page2';
+import { Page2test } from './components/Page2test';
 import './App.css';
 
 function App() {
@@ -26,6 +27,7 @@ function AppRoutes() {
         <Route path="/register" element={<  Register />} />
         <Route path="/page1" element={<  Page1 />} />
         <Route path="/page2" element={<  Page2 />} />
+        <Route path="/page2test" element={<  Page2test />} />
       </Routes>
   );
 }

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import errorImage from "../assets/error.png";
 import "./style.css";
 
@@ -49,7 +50,7 @@ function Page2() {
                                 className="error-animation"
                                 style={{
                                     position: 'absolute',
-                                    width: '20%',
+                                    width: '250px',
                                     height: 'auto',
                                     ...image.style
                                 }}
@@ -61,9 +62,12 @@ function Page2() {
                             다음 <span style={{color: "#A3CC40"}}>문해력 테스트</span>를 통해 <br/>
                             <span style={{color: "#A3CC40"}}>나의 뇌구조에 에러</span>가 없는지 확인해 보세요
                         </p>
-                        <button className="font-DNFBitBitv2 button-active mt-2 mb-8 px-6 py-2 border rounded hover:bg-gray-500 hover:text-white active:bg-gray-700 active:text-white transition duration-300 ease-in-out">
-                            문해력 테스트
-                        </button>
+                        <Link to="/page2test">
+                            <button className="font-DNFBitBitv2 button-active mt-2 mb-8 px-6 py-2 border rounded hover:bg-gray-500 hover:text-white active:bg-gray-700 active:text-white transition duration-300 ease-in-out"
+                                style={{ zIndex: 20 }}> {/* 여기에 z-index 값을 추가 */}
+                                문해력 테스트
+                            </button>
+                        </Link>
                     </div>        
             )}
 
