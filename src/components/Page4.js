@@ -3,7 +3,7 @@ import "./style.css";
 
 function Page4() {
     return (
-                <div className="min-h-screen overflow-y-auto font-lab-digital max-h-screen p-4 flex flex-col items-center justify-center bg-black background-3">
+                <div className="min-h-screen overflow-y-auto font-lab-digital max-h-screen p-4 flex flex-col items-center justify-center bg-black background-4">
                         
                         <h1 className="mt-32 mb-4 text-center font-DNFBitBitv2 text-5xl" style={{
                             background: "linear-gradient(#75BF42, #A3CC40)",
