@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import "./style.css";
 
 function Page1() {
     const navigate = useNavigate();
+    const location = useLocation(); // useLocation 훅 추가
+    const { name } = location.state || { name: "손님" }; // Register 컴포넌트에서 전달된 이름 받기
     const [inputs, setInputs] = useState(['', '', '', '']);
 
     const updateInput = (index, value) => {
@@ -41,7 +43,7 @@ function Page1() {
                         </p>
                             <p className="text-center mb-6" style={{color: "#ffffff"}}>
                                 <div className="glitch">
-                                    <span className="font-DNFBitBitv2" style={{color: "#A3CC40"}}>00님의 뇌는<br/>해킹당했습니다<br/><br/></span>
+                                <span className="font-DNFBitBitv2" style={{color: "#A3CC40"}}>{name}님의 뇌는<br/>해킹당했습니다<br/><br/></span>
                                 </div>
                                 독이 되는 <span style={{color: "#A3CC40"}}>독파민</span>은<br/>
                                 우리의 <span style={{color: "#A3CC40"}}>뇌구조에 침투</span>하여 <br/>

@@ -26,9 +26,8 @@ function Register() {
         if (title === '' || name.length < 2) {
             setShowWarning(true);
         } else {
-            // 로직 처리 예: 페이지 이동
             setShowWarning(false);
-            navigate('/page1');
+            navigate('/page1', { state: { name: name } }); // name 상태를 전달
         }
     };
 
