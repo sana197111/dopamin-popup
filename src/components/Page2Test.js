@@ -3,17 +3,24 @@ import { useNavigate } from 'react-router-dom'; // useNavigate 훅 임포트
 import "./style.css";
 
 function Page2Test() {
-    const [selectedOption, setSelectedOption] = useState(null);
+    // 각 문제에 대한 선택 상태를 별도로 관리
+    const [selectedOption1, setSelectedOption1] = useState(null);
+    const [selectedOption2, setSelectedOption2] = useState(null);
     const [isSubmitted, setIsSubmitted] = useState(false);
     const navigate = useNavigate(); // useNavigate 훅 사용
 
-    const handleOptionSelect = (option) => {
-        setSelectedOption(selectedOption === option ? null : option);
+    // 각 문제에 대한 선택 처리 함수
+    const handleOptionSelect1 = (option) => {
+        setSelectedOption1(selectedOption1 === option ? null : option);
+    };
+
+    const handleOptionSelect2 = (option) => {
+        setSelectedOption2(selectedOption2 === option ? null : option);
     };
 
     const handleSubmit = () => {
-        if (!selectedOption) {
-            alert("옵션을 선택해주세요.");
+        if (!selectedOption1 || !selectedOption2) {
+            alert("모든 옵션을 선택해주세요.");
         } else if (!isSubmitted) {
             alert("정답이 아닙니다.");
             setIsSubmitted(true);
@@ -40,11 +47,11 @@ function Page2Test() {
                 <div className="question-box">
                     <p>나는 올해 입사 만 13년차니까 이번 해에는 급여 산정에 포함되는 연차를 최대 (___)일 쓸 수 있겠군</p>
                 </div>
-                <div className="mb-4">
-                    <div onClick={() => handleOptionSelect('A')} className={`option mt-4 mb-1 text-left ${selectedOption === 'A' ? 'text-red-500' : 'text-black'}`}>① 10일</div>
-                    <div onClick={() => handleOptionSelect('B')} className={`option mb-1 text-left ${selectedOption === 'B' ? 'text-red-500' : 'text-black'}`}>② 11일</div>
-                    <div onClick={() => handleOptionSelect('C')} className={`option mb-1 text-left ${selectedOption === 'C' ? 'text-red-500' : 'text-black'}`}>③ 12일</div>
-                    <div onClick={() => handleOptionSelect('D')} className={`option text-left ${selectedOption === 'D' ? 'text-red-500' : 'text-black'}`}>④ 13일</div>
+                <div className="mb-8">
+                    <div onClick={() => handleOptionSelect1('A')} className={`option mt-4 mb-1 text-left ${selectedOption1 === 'A' ? 'text-red-500' : 'text-black'}`}>① 10일</div>
+                    <div onClick={() => handleOptionSelect1('B')} className={`option mb-1 text-left ${selectedOption1 === 'B' ? 'text-red-500' : 'text-black'}`}>② 11일</div>
+                    <div onClick={() => handleOptionSelect1('C')} className={`option mb-1 text-left ${selectedOption1 === 'C' ? 'text-red-500' : 'text-black'}`}>③ 12일</div>
+                    <div onClick={() => handleOptionSelect1('D')} className={`option text-left ${selectedOption1 === 'D' ? 'text-red-500' : 'text-black'}`}>④ 13일</div>
                 </div>
                 {isSubmitted && (
                     <div className="text-red-500 mb-8">
@@ -66,10 +73,10 @@ function Page2Test() {
                     <p>나는 원래 9-18시까지 일하는데, 올해 10번 야근으로 새벽 1시까지 일을 했으니, 올해에 (___)원 만큼의 수당을 추가로 받을 수 있겠군<br/> (통상임금은 시간 당 1만원임)</p>
                 </div>
                 <div className="mb-4">
-                    <div onClick={() => handleOptionSelect('A')} className={`option mt-4 mb-1 text-left ${selectedOption === 'A' ? 'text-red-500' : 'text-black'}`}>① 70만원</div>
-                    <div onClick={() => handleOptionSelect('B')} className={`option mb-1 text-left ${selectedOption === 'B' ? 'text-red-500' : 'text-black'}`}>② 90만원</div>
-                    <div onClick={() => handleOptionSelect('C')} className={`option mb-1 text-left ${selectedOption === 'C' ? 'text-red-500' : 'text-black'}`}>③ 120만원</div>
-                    <div onClick={() => handleOptionSelect('D')} className={`option text-left ${selectedOption === 'D' ? 'text-red-500' : 'text-black'}`}>④ 135만원</div>
+                    <div onClick={() => handleOptionSelect2('A')} className={`option mt-4 mb-1 text-left ${selectedOption2 === 'A' ? 'text-red-500' : 'text-black'}`}>① 70만원</div>
+                    <div onClick={() => handleOptionSelect2('B')} className={`option mb-1 text-left ${selectedOption2 === 'B' ? 'text-red-500' : 'text-black'}`}>② 90만원</div>
+                    <div onClick={() => handleOptionSelect2('C')} className={`option mb-1 text-left ${selectedOption2 === 'C' ? 'text-red-500' : 'text-black'}`}>③ 120만원</div>
+                    <div onClick={() => handleOptionSelect2('D')} className={`option text-left ${selectedOption2 === 'D' ? 'text-red-500' : 'text-black'}`}>④ 135만원</div>
                 </div>
                 {isSubmitted && (
                     <div className="text-red-500 mt-4 mb-4">

@@ -95,7 +95,7 @@
 
 .image-container {
     width: 320px; /* 컨테이너의 너비를 부모 요소에 맞춥니다. */
-    height: 250vh; /* 컨테이너의 높이를 뷰포트 높이에 맞춥니다. */
+    height: 300vh; /* 컨테이너의 높이를 뷰포트 높이에 맞춥니다. */
     background-image: url('../assets/testImage.png'); /* 배경 이미지 설정 */
     background-size: cover; /* 이미지가 컨테이너를 전부 커버하도록 설정 */
     background-position: top center; /* 이미지가 상단 중앙에 위치하도록 설정 */
