@@ -24,7 +24,7 @@ function Register() {
 
     const handleSubmit = () => {
         if (title !== '' && name.length >= 2) {
-            navigate('/submit', { state: { name: name } }); // 'name'을 Submit 컴포넌트로 전달
+            navigate('/page1', { state: { name: name } }); // 'name'을 Submit 컴포넌트로 전달
         } else {
             setShowWarning(true);
         }
