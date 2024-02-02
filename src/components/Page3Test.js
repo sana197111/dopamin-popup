@@ -61,14 +61,15 @@ function Page3Test() {
     return (
         <div className="p-10 md:p-12 font-lab-digital min-h-screen overflow-y-auto flex flex-col items-center bg-black background-3">
             <div className="w-80 m-auto">
-                <h1 className="text-4xl mb-6 mt-44 font-DNFBitBitv2" style={{
+                <h1 className="text-4xl mb-6 mt-24 font-DNFBitBitv2" style={{
                     background: "linear-gradient(#75BF42, #A3CC40)",
                     WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent"
                 }}>
                     성향 테스트
                 </h1>
-                <div className="overflow-y-auto" style={{ maxHeight: "370px" }}> {/* 여기서 maxHeight 값을 조절하여 스크롤 영역의 크기를 조정할 수 있습니다. */}
+                <div className="overflow-y-auto" style={{ maxHeight: "410px" }}> {/* 여기서 maxHeight 값을 조절하여 스크롤 영역의 크기를 조정할 수 있습니다. */}
+                <p className="text-gray-400 mb-4 text-sm">1. 전혀 그렇지 않다   2. 대체로 그렇지 않다   <br/>3. 보통이다   4. 대체로 그렇다  5. 매우 그렇다</p>
                     {selectedQuestions.map((question, index) => (
                             <div key={index} className="mb-8">
                                 <p className="mb-4 text-lg" style={{ color: "#ffffff" }}>{index + 1}번. {question.text}</p>
