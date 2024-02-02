@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import questions from "./PersonalTest";
 import "./style.css";
 import { useNavigate } from 'react-router-dom';
-import { setUserData, submitToGoogleSheet } from './Submit';
 
 function Page3Test() {
     const [selectedQuestions, setSelectedQuestions] = useState([]);
@@ -51,11 +50,10 @@ function Page3Test() {
             });
 
             // name 변수를 적절한 값으로 설정해야 합니다. 예를 들어, 사용자 입력을 받거나 다른 상태에서 가져와야 합니다.
-            setUserData(scores); // 사용자 데이터 설정
             console.log("User data prepared for submission."); // 제출 준비 완료 로그
-            await submitToGoogleSheet(); // 제출
             console.log("Redirecting to result page."); // 결과 페이지로 리디렉션 로그
-            navigate(`/page3result/${maxIndex}`);
+            console.log(scoreSums)
+            navigate(`/page3result/${maxIndex}`, { state: { scoreSums: scoreSums } });
         }
     };
 

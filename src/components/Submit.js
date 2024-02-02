@@ -1,30 +1,35 @@
-// Submit.js
-import axios from 'axios';
+import { GoogleSpreadsheet } from 'google-spreadsheet';
 
-// 사용자 이름(아이디)과 성향 테스트 결과를 저장하는 객체
-const userData = {
-    name: "",
-    scores: [0, 0, 0, 0, 0, 0, 0, 0, 0]
+// Google Sheets API 서비스 계정 인증 정보
+const creds = {
+    client_email: 'YOUR_SERVICE_ACCOUNT_EMAIL',
+    private_key: 'YOUR_PRIVATE_KEY',
 };
 
-// 사용자 이름(아이디)과 성향 테스트 결과 점수를 설정하는 함수
-export const setUserData = (name, scores) => {
-    userData.name = name;
-    userData.scores = scores; // 각 질문에 대한 점수 배열을 저장
-};
+// 스프레드시트 ID
+const SPREADSHEET_ID = 'YOUR_SPREADSHEET_ID';
 
-export const submitToGoogleSheet = async () => {
-    console.log("Submitting to Google Sheet...");
+const doc = new GoogleSpreadsheet(SPREADSHEET_ID);
 
-    const scriptUrl = 'https://script.google.com/macros/s/AKfycbxM17ta6i9Me4qu-K4hofSLT7FM-8sEBXBh4JtCOQa-cJPVA7xe4VRcFQsOH25cx3xS/exec';
-    const headers = {
-        'Content-Type': 'application/json',
-    };
-
+const appendDataToSheet = async (name, scores) => {
     try {
-        const response = await axios.post(scriptUrl, userData, { headers });
-        console.log(response.data); // 성공 시 응답 로그
-    } catch (error) {
-        console.error('Error submitting to Google Sheet:', error);
+        // 서비스 계정으로 인증
+        await doc.useServiceAccountAuth(creds);
+
+        // 문서 정보 로드
+        await doc.loadInfo();
+
+        // 첫 번째 시트 로드
+        const sheet = doc.sheetsByIndex[0]; // 일반적으로 0, 필요에 따라 변경 가능
+
+        // 스프레드시트에 행 추가
+        await sheet.addRow({
+            'Name': name,
+            'Scores': scores.join(', '), // 점수 배열을 문자열로 변환
+        });
+
+        console.log('Data appended successfully');
+    } catch (e) {
+        console.error('Error: ', e);
     }
 };
