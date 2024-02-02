@@ -30,14 +30,9 @@ function Page2Test() {
     };
 
     return (
-        <div className="min-h-screen overflow-y-auto max-h-screen p-4 flex flex-col items-center justify-center bg-black background-1">
-            <div className="image-container pl-4 pr-4 pt-96 mt-96">
-                <h1 className="mb-6 mt-36 text-center font-DNFBitBitv2 text-4xl" style={{
-                            WebkitBackgroundClip: "text"
-                        }}>
-                            문해력 테스트<br/>
-                </h1>
-                <p>1. 다음은 근로기준법 규정 중 일부이다. ( ) 안에 들어갈 말로 가장 적절한 것은?</p>
+        <div className="p-12 md:p-12 min-h-screen overflow-y-auto max-h-screen flex flex-col items-center bg-black background-2">
+            <div className="image-container pl-4 pr-4 pt-2 mt-2">
+                <p className="mt-28">1. 다음은 근로기준법 규정 중 일부이다. ( ) 안에 들어갈 말로 가장 적절한 것은?</p>
                 <div className="question-box">
                     <strong>제 60조(연차 유급휴가)<br/></strong>
                     1) 사용자는 1년간 80퍼센트 이상 출근한 근로자에게 10일의 유급휴가를 주어야 한다.<br/>
