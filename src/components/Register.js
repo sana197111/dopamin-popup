@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { setUserData } from './Submit';
 
 function Register() {
     const fullText = "의뢰인의 칭호와 아이디를 지정해주세요. <br/> 별명과 이름, 어떤 것이든 상관 없습니다.";
@@ -27,10 +28,11 @@ function Register() {
             setShowWarning(true);
         } else {
             setShowWarning(false);
-            navigate('/page1', { state: { name: name } }); // name 상태를 전달
+            setUserData(name); // 사용자 이름(아이디) 저장
+            navigate('/page1');
         }
     };
-
+    
     return (
         <div className="min-h-screen overflow-y-auto font-lab-digital max-h-screen p-4 flex flex-col items-center justify-center bg-black background-gif">
             <h1 className="mb-10 text-center font-DNFBitBitv2 text-4xl" style={{

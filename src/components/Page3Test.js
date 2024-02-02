@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import questions from "./PersonalTest";
 import "./style.css";
-import { useNavigate } from 'react-router-dom'; // useNavigate 훅 임포트
+import { useNavigate } from 'react-router-dom';
+import { setUserData, submitToGoogleSheet } from './Submit';
 
 function Page3Test() {
     const [selectedQuestions, setSelectedQuestions] = useState([]);
     const [scores, setScores] = useState(Array(54).fill(null));
-    const navigate = useNavigate(); // useNavigate 훅 사용
+    const navigate = useNavigate();
 
     useEffect(() => {
         setSelectedQuestions(shuffleArray(questions).slice(0, 54));
@@ -27,36 +28,37 @@ function Page3Test() {
         setScores(newScores);
     };
 
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
         if (scores.some(score => score === null)) {
             alert("모든 질문에 답해주세요.");
         } else {
-            // 각 number에 대한 총점을 계산
             let scoreSums = selectedQuestions.reduce((acc, question, index) => {
                 const score = scores[index];
                 if (score !== null) {
-                    if (!acc[question.number]) {
-                        acc[question.number] = 0;
-                    }
+                    if (!acc[question.number]) acc[question.number] = 0;
                     acc[question.number] += score;
                 }
                 return acc;
             }, {});
 
-            // 가장 높은 점수를 가진 number 찾기
             let maxScore = 0;
-            let maxNumber = 1; // 기본값으로 1 설정
-            for (let number in scoreSums) {
-                if (scoreSums[number] > maxScore) {
-                    maxScore = scoreSums[number];
-                    maxNumber = number;
+            let maxIndex = 1; // 가정
+            Object.entries(scoreSums).forEach(([number, sum]) => {
+                if (sum > maxScore) {
+                    maxScore = sum;
+                    maxIndex = number;
                 }
-            }
+            });
 
-            // 해당 number를 URL에 포함하여 navigate 호출
-            navigate(`/page3result/${maxNumber}`);
+            // name 변수를 적절한 값으로 설정해야 합니다. 예를 들어, 사용자 입력을 받거나 다른 상태에서 가져와야 합니다.
+            setUserData(scores); // 사용자 데이터 설정
+            console.log("User data prepared for submission."); // 제출 준비 완료 로그
+            await submitToGoogleSheet(); // 제출
+            console.log("Redirecting to result page."); // 결과 페이지로 리디렉션 로그
+            navigate(`/page3result/${maxIndex}`);
         }
     };
+
 
     return (
         <div className="p-10 md:p-12 font-lab-digital min-h-screen overflow-y-auto flex flex-col items-center bg-black background-3">
@@ -77,7 +79,7 @@ function Page3Test() {
                                         <button 
                                             key={score} 
                                             className={`px-4 py-2 border rounded hover:bg-gray-500 hover:text-white active:bg-gray-700 transition duration-300 ease-in-out ${scores[index] === score ? 'bg-[#A3CC40]' : 'bg-black'}`} // 선택된 점수에 따라 배경색 변경
-                                            onClick={() => handleScoreChange(index, score)}
+                   c                          onClick={() => handleScoreChange(index, score)}
                                             style={{ color: scores[index] === score ? "#ffffff" : "#ffffff" }} // 선택된 상태에서 텍스트 색상 유지
                                         >{score}</button>
                                     ))}
