@@ -50,14 +50,14 @@ function Page3Result() {
     return (
         <div className="min-h-screen p-4 overflow-y-auto max-h-screen flex flex-col items-center bg-black" style={{backgroundColor: "#514d4c"}}>
             <img src={typeImages[validTypeNumber]} alt={`Type ${validTypeNumber}`} className="object-contain" />
-            <div className="my-2 mb-8 w-full text-center">
+            {/* <div className="my-2 mb-8 w-full text-center">
                 {sortedScores.map(([typeNumber, score]) => (
                     <span key={typeNumber} className="inline-block font-DNFBitBitv2 border border-white bg-transparent px-6 py-2 m-1 text-white transition duration-300 ease-in-out">
                         {typeNumber}번 ({score}점)
                     </span>
                 ))}
-            </div>
-            <button onClick={handleNavigate} className="px-6 py-2 mt-8 mb-20 border rounded font-DNFBitBitv2 hover:bg-gray-500 hover:text-white active:bg-gray-700 active:text-white transition duration-300 ease-in-out" 
+            </div> */}
+            <button onClick={handleNavigate} className="px-6 py-2 mt-12 mb-20 border rounded font-DNFBitBitv2 hover:bg-gray-500 hover:text-white active:bg-gray-700 active:text-white transition duration-300 ease-in-out" 
                     style={{ color: "#d2d6d5", borderColor: "#d2d6d5", display: "block", margin: "auto" }}
             > 
                 페이지4 이동하기

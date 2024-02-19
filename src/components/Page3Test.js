@@ -5,11 +5,11 @@ import { useNavigate } from 'react-router-dom';
 
 function Page3Test() {
     const [selectedQuestions, setSelectedQuestions] = useState([]);
-    const [scores, setScores] = useState(Array(54).fill(null));
+    const [scores, setScores] = useState(Array(27).fill(null));
     const navigate = useNavigate();
 
     useEffect(() => {
-        setSelectedQuestions(shuffleArray(questions).slice(0, 54));
+        setSelectedQuestions(shuffleArray(questions).slice(0, 27));
     }, []);
 
     const shuffleArray = (array) => {
