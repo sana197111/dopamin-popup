@@ -1,4 +1,10 @@
 [[redirects]]
+from = "/api/*"
+to = "https://2smb3nmaxb.execute-api.us-east-2.amazonaws.com/:splat"
+status = 200
+force = true
+
+[[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200

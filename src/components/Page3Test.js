@@ -56,7 +56,7 @@ function Page3Test() {
 
             // 서버에 POST 요청을 보냅니다.
             try {
-                const response = await fetch("/default/dockpamin-backend", {
+                const response = await fetch("/api/default/dockpamin-backend", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
