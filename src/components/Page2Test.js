@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'; // useNavigate 훅 임포트
 import "./style.css";
 
@@ -7,7 +7,29 @@ function Page2Test() {
     const [selectedOption1, setSelectedOption1] = useState(null);
     const [selectedOption2, setSelectedOption2] = useState(null);
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const [remainingTime, setRemainingTime] = useState(120); // 2분 = 120초
+    const [progressWidth, setProgressWidth] = useState(100); // 진행 바의 초기 너비는 100%
     const navigate = useNavigate(); // useNavigate 훅 사용
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setRemainingTime((prevTime) => {
+                if (prevTime <= 1) {
+                    clearInterval(timer); // 타이머 정지
+                    navigate('/page3'); // 시간이 다 되면 자동으로 다음 페이지로 이동
+                    return 0;
+                }
+                return prevTime - 1;
+            });
+        }, 1000);
+
+        return () => clearInterval(timer); // 컴포넌트 언마운트 시 타이머 정리
+    }, [navigate]);
+
+    useEffect(() => {
+        // 남은 시간에 따라 진행 바의 너비를 업데이트
+        setProgressWidth((remainingTime / 120) * 100);
+    }, [remainingTime]);
 
     // 각 문제에 대한 선택 처리 함수
     const handleOptionSelect1 = (option) => {
@@ -31,6 +53,7 @@ function Page2Test() {
 
     return (
         <div className="p-12 md:p-12 min-h-screen overflow-y-auto max-h-screen flex flex-col items-center bg-black background-2">
+            <div className="timer-bar" style={{ width: `${progressWidth}%` }}></div> {/* 진행 바 추가 */}
             <div className="image-container pl-4 pr-4 pt-2 mt-2">
                 <p className="mt-28">1. 다음은 근로기준법 규정 중 일부이다. ( ) 안에 들어갈 말로 가장 적절한 것은?</p>
                 <div className="question-box">

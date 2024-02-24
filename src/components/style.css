@@ -255,3 +255,15 @@ input[type="checkbox"]:checked + label::after {
     box-shadow: 0 0 15px #8ff90e;
     animation: scan-animation 2s forwards;
 }
+
+.timer-bar {
+    height: 10px;
+    background-color: #8ff90e;
+    border-radius: 5px;
+    transition: width 1s ease-in-out;
+    position: fixed;
+    top: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 320px; /* 고정 너비 설정 */
+}
