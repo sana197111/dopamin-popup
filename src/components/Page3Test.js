@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import questions from "./PersonalTest";
 import "./style.css";
 import { useNavigate } from 'react-router-dom';
+import { resultData } from './resultData';
 
 function Page3Test() {
     const [selectedQuestions, setSelectedQuestions] = useState([]);
@@ -39,21 +40,39 @@ function Page3Test() {
                 }
                 return acc;
             }, {});
+            
 
             let maxScore = 0;
             let maxIndex = 1; // 가정
+
             Object.entries(scoreSums).forEach(([number, sum]) => {
+                resultData.scoreSums[number] = sum;
                 if (sum > maxScore) {
                     maxScore = sum;
                     maxIndex = number;
                 }
             });
 
-            // name 변수를 적절한 값으로 설정해야 합니다. 예를 들어, 사용자 입력을 받거나 다른 상태에서 가져와야 합니다.
-            console.log("User data prepared for submission."); // 제출 준비 완료 로그
-            console.log("Redirecting to result page."); // 결과 페이지로 리디렉션 로그
-            console.log(scoreSums)
-            navigate(`/page3result/${maxIndex}`, { state: { scoreSums: scoreSums } });
+
+            // 서버에 POST 요청을 보냅니다.
+            try {
+                const response = await fetch("https://2smb3nmaxb.execute-api.us-east-2.amazonaws.com/default/dockpamin-backend", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(resultData),
+                });
+
+                if (response.ok) {
+                    console.log("Data submitted successfully");
+                    navigate(`/page3result/${maxIndex}`, { state: { scoreSums: scoreSums } });
+                } else {
+                    console.error("Failed to submit data");
+                }
+            } catch (error) {
+                console.error("Error submitting data", error);
+            }
         }
     };
 

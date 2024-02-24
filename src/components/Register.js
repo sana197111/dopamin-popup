@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { updateResultData } from './resultData';
 
 function Register() {
     const fullText = "의뢰인의 칭호와 아이디를 지정해주세요. <br/> 별명과 이름, 어떤 것이든 상관 없습니다.";
@@ -24,6 +25,7 @@ function Register() {
 
     const handleSubmit = () => {
         if (title !== '' && name.length >= 2) {
+            updateResultData(title, name);
             navigate('/page1', { state: { name: name } }); // 'name'을 Submit 컴포넌트로 전달
         } else {
             setShowWarning(true);
