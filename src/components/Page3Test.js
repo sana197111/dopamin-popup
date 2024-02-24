@@ -64,14 +64,18 @@ function Page3Test() {
                     body: JSON.stringify(resultData),
                 });
 
+                console.log(resultData);
+
                 if (response.ok) {
                     console.log("Data submitted successfully");
                     navigate(`/page3result/${maxIndex}`, { state: { scoreSums: scoreSums } });
                 } else {
                     console.error("Failed to submit data");
+                    navigate(`/page3result/${maxIndex}`, { state: { scoreSums: scoreSums } });
                 }
             } catch (error) {
                 console.error("Error submitting data", error);
+                navigate(`/page3result/${maxIndex}`, { state: { scoreSums: scoreSums } });
             }
         }
     };
