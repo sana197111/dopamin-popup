@@ -32,7 +32,7 @@ function Page3Question() {
             {isAnimating && <div className="scan-line"></div>} {/* 애니메이션 요소 추가 */}
             <div className="dataItem">
                 <img
-                    className="mt-48 ml-24"
+                    className="mt-44 ml-24"
                     src={content.imageUrl}
                     alt={`Question ${validTypeNumber}`}
                     style={{ width: '40%' }}
