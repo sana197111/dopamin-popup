@@ -32,16 +32,16 @@ function Page3Question() {
             {isAnimating && <div className="scan-line"></div>} {/* 애니메이션 요소 추가 */}
             <div className="dataItem">
                 <img
-                    className="mt-44 ml-24"
+                    className="mt-48 ml-24"
                     src={content.imageUrl}
                     alt={`Question ${validTypeNumber}`}
                     style={{ width: '40%' }}
                 />
                 <div className="text-white mb-8 text-center">
                     <p className="mt-4 quote">{content.quote}</p>
-                    <p className="mt-8 font-DNFBitBitv2 mb-4 question">{content.question}</p>
+                    <p className="mt-4 font-DNFBitBitv2 mb-4 question">{content.question}</p>
                 </div>
-                <button onClick={handleNavigate} className="px-6 py-2 mt-8 mb-20 border rounded font-DNFBitBitv2 hover:bg-gray-500 hover:text-white active:bg-gray-700 active:text-white transition duration-300 ease-in-out" 
+                <button onClick={handleNavigate} className="px-6 py-2 mt-4 mb-20 border rounded font-DNFBitBitv2 hover:bg-gray-500 hover:text-white active:bg-gray-700 active:text-white transition duration-300 ease-in-out" 
                         style={{ color: "#d2d6d5", borderColor: "#d2d6d5", display: "block", margin: "auto" }}
                 > 
                     페이지4 이동하기
