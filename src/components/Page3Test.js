@@ -56,7 +56,7 @@ function Page3Test() {
 
             // 서버에 POST 요청을 보냅니다.
             try {
-                const response = await fetch("https://2smb3nmaxb.execute-api.us-east-2.amazonaws.com/default/dockpamin-backend", {
+                const response = await fetch("/default/dockpamin-backend", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
@@ -64,7 +64,7 @@ function Page3Test() {
                     body: JSON.stringify(resultData),
                 });
 
-                console.log(resultData);
+                console.log("정보: ", resultData);
 
                 if (response.ok) {
                     console.log("Data submitted successfully");

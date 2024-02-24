@@ -20,6 +20,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "proxy": "https://2smb3nmaxb.execute-api.us-east-2.amazonaws.com",
   "eslintConfig": {
     "extends": [
       "react-app",
