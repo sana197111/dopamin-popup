@@ -105,6 +105,10 @@
     align-items: center; /* 내부 요소들을 가운데 정렬합니다. */
 }
 
+.dataItem {
+    width: 320px; /* 컨테이너의 너비를 부모 요소에 맞춥니다. */
+}
+
 
 .button-active {
     color: #d2d6d5;
@@ -231,4 +235,23 @@ input[type="checkbox"]:checked + label::after {
     text-align: center;
     margin: 0 10px;
     /* Add additional styles such as border, background, etc. */
+}
+
+@keyframes scan-animation {
+    from {
+        top: -10px;
+    }
+    to {
+        top: 100%;
+    }
+}
+
+.scan-line {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 10px;
+    background-color: #8ff90e;
+    box-shadow: 0 0 15px #8ff90e;
+    animation: scan-animation 2s forwards;
 }
