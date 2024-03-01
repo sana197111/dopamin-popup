@@ -68,13 +68,13 @@ function Page2Test() {
 
     return (
         <div className="p-12 md:p-12 min-h-screen overflow-y-auto max-h-screen flex flex-col items-center bg-black background-2">
-            <div className="timer-bar-container" style={{ position: 'fixed', top: '5px', left: '50%', transform: 'translateX(-50%)', width: '320px', zIndex: '1000'}}>
-                <div style={{ width: `${progressWidth}%`, height: '20px', backgroundColor: '#8ff90e', borderRadius: '5px', transition: 'width 1s ease-in-out'}}></div>
-            </div>
-            <div style={{ position: 'fixed', top: '30px', left: '50%', transform: 'translateX(-50%)', zIndex: '1000' }}>
+            <div style={{ position: 'fixed', bottom: '30px', left: '50%', transform: 'translateX(-50%)', zIndex: '1000' }}>
                 <div className={`font-lab-digital flex justify-center items-center ${getTimeStyle()} w-24`} style={{ padding: '2px 4px', backgroundColor: '#fff', borderRadius: '10px'}}>
                     {formatTime(remainingTime)}
                 </div>
+            </div>
+            <div className="timer-bar-container" style={{ position: 'fixed', bottom: '5px', left: '50%', transform: 'translateX(-50%)', width: '320px', zIndex: '1000'}}>
+                <div style={{ width: `${progressWidth}%`, height: '20px', backgroundColor: '#8ff90e', borderRadius: '5px', transition: 'width 1s ease-in-out'}}></div>
             </div>
             <div className="image-container pl-4 pr-4 pt-2 mt-2">
                 <p className="mt-28">1. 다음은 근로기준법 규정 중 일부이다. ( ) 안에 들어갈 말로 가장 적절한 것은?</p>
