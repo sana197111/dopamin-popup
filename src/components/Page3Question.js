@@ -32,7 +32,7 @@ function Page3Question() {
             {isAnimating && <div className="scan-line"></div>} {/* 애니메이션 요소 추가 */}
             <div className="dataItem">
                 <img
-                    className="mt-48 ml-24"
+                    className="mt-64 ml-24"
                     src={content.imageUrl}
                     alt={`Question ${validTypeNumber}`}
                     style={{ width: '40%' }}
@@ -44,7 +44,7 @@ function Page3Question() {
                 <button onClick={handleNavigate} className="px-6 py-2 mt-4 mb-20 border rounded font-DNFBitBitv2 hover:bg-gray-500 hover:text-white active:bg-gray-700 active:text-white transition duration-300 ease-in-out" 
                         style={{ color: "#d2d6d5", borderColor: "#d2d6d5", display: "block", margin: "auto" }}
                 > 
-                    페이지4 이동하기
+                    독파민 유형 결과
                 </button>
             </div>
         </div>

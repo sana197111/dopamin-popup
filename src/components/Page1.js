@@ -42,16 +42,24 @@ function Page1() {
                             [ Hacking ]
                         </p>
                             <p className="text-center mb-6" style={{color: "#ffffff"}}>
-                                <div className="glitch">
-                                <span className="font-DNFBitBitv2" style={{color: "#A3CC40"}}>{name}님의 뇌는<br/>해킹당했습니다<br/><br/></span>
+                                <div className="glitch mb-2">
+                                <span className="font-DNFBitBitv2" style={{color: "#A3CC40"}}>{name}님의 뇌는<br/>해킹당했습니다<br/></span>
                                 </div>
-                                독이 되는 <span style={{color: "#A3CC40"}}>독파민</span>은<br/>
-                                우리의 <span style={{color: "#A3CC40"}}>뇌구조에 침투</span>하여 <br/>
-                                오직 <span style={{color: "#A3CC40"}}>쾌락</span>만을 <span style={{color: "#A3CC40"}}>추구</span>하게 만듭니다. <br/>
-                                <span style={{color: "#A3CC40"}}>쾌락</span>을 통해 <span style={{color: "#A3CC40"}}>잠깐</span>은 즐거울 수 있으나, <br/>
-                                이는 결국 우리에게 더욱 큰 <span style={{color: "#A3CC40"}}>고통</span>으로 돌아옵니다 <br/>
-                                해킹 당한 뇌구조를 되찾기 위해서 <br/>
-                                <span style={{color: "#A3CC40"}}>PASSWORD</span>를 찾아보세요.<br/>
+
+                                <div className="mb-2">
+                                    <span style={{color: "#A3CC40"}}>독파민</span>은 우리의 <span style={{color: "#A3CC40"}}>뇌를 해킹</span>하여 <br/>
+                                    <span style={{color: "#A3CC40"}}>쾌락</span>에 절여지게 만듭니다. <br/>
+                                </div>
+
+                                <div className="mb-2">
+                                    이를 방치하면 <br/>
+                                    나의 <span style={{color: "#A3CC40"}}>집중력 / 인내심 / 문해력</span>에<br/>
+                                    <span style={{color: "#A3CC40"}}>치명적인 손상</span>을 입게 됩니다. <br/>
+                                </div>
+
+                                해킹 당한 뇌구조를 되찾기 위해 잃어버린 <br/>
+                                <span style={{color: "#A3CC40"}}>PASSWORD</span>를
+                                영상 속에서 찾아보세요.<br/>
                             </p>
                             <div className="password-container">
                                 {inputs.map((input, index) => (
@@ -68,7 +76,7 @@ function Page1() {
                                     />
                                 ))}
                             </div>
-                            <button onClick={checkPassword} className="font-DNFBitBitv2 button-active mt-2 mb-8 px-6 py-2 border rounded hover:bg-gray-500 hover:text-white active:bg-gray-700 active:text-white transition duration-300 ease-in-out">
+                            <button onClick={checkPassword} className="font-DNFBitBitv2 button-active mt-2 mb-6 px-6 py-2 border rounded hover:bg-gray-500 hover:text-white active:bg-gray-700 active:text-white transition duration-300 ease-in-out">
                                 확인
                             </button>
                     </div>        

@@ -89,7 +89,7 @@ function Page3Test() {
                     WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent"
                 }}>
-                    성향 테스트
+                    스캐닝
                 </h1>
                 <div className="overflow-y-auto" style={{ maxHeight: "410px" }}> {/* 여기서 maxHeight 값을 조절하여 스크롤 영역의 크기를 조정할 수 있습니다. */}
                 <p className="text-gray-400 mb-4 text-sm">1. 전혀 그렇지 않다   2. 대체로 그렇지 않다   <br/>3. 보통이다   4. 대체로 그렇다  5. 매우 그렇다</p>
@@ -113,7 +113,7 @@ function Page3Test() {
                         className="px-6 py-2 mt-8 mb-20 border rounded font-DNFBitBitv2 hover:bg-gray-500 hover:text-white active:bg-gray-700 active:text-white transition duration-300 ease-in-out" 
                         style={{ color: "#d2d6d5", borderColor: "#d2d6d5", display: "block", margin: "auto" }} // 버튼을 블록 요소로 설정하고 자동 마진으로 중앙 정렬
                     >
-                        제출하기
+                        독파민별 질문 받기
                     </button>
                 </div>
             </div>

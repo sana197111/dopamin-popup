@@ -15,15 +15,15 @@ function Barcode() {
 
   // 검색어와 이미지의 매핑
   const imageMap = {
-    dockpamin1: type1,
-    dockpamin2: type2,
-    dockpamin3: type3,
-    dockpamin4: type4,
-    dockpamin5: type5,
-    dockpamin6: type6,
-    dockpamin7: type7,
-    dockpamin8: type8,
-    dockpamin9: type9,
+    53912932: type1,
+    53914213: type2,
+    53918423: type3,
+    53917433: type4,
+    53916488: type5,
+    53919864: type6,
+    53914417: type7,
+    53910122: type8,
+    53917680: type9,
   };
 
   const handleSearch = (e) => {

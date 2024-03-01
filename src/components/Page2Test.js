@@ -7,7 +7,7 @@ function Page2Test() {
     const [selectedOption1, setSelectedOption1] = useState(null);
     const [selectedOption2, setSelectedOption2] = useState(null);
     const [isSubmitted, setIsSubmitted] = useState(false);
-    const [remainingTime, setRemainingTime] = useState(120); // 2분 = 120초
+    const [remainingTime, setRemainingTime] = useState(150); // 2분 = 120초
     const [progressWidth, setProgressWidth] = useState(100); // 진행 바의 초기 너비는 100%
     const navigate = useNavigate(); // useNavigate 훅 사용
 
@@ -28,7 +28,7 @@ function Page2Test() {
 
     useEffect(() => {
         // 남은 시간에 따라 진행 바의 너비를 업데이트
-        setProgressWidth((remainingTime / 120) * 100);
+        setProgressWidth((remainingTime / 150) * 100);
     }, [remainingTime]);
 
     // 각 문제에 대한 선택 처리 함수
@@ -51,9 +51,31 @@ function Page2Test() {
         }
     };
 
+    // 남은 시간을 분:초 형식으로 변환하는 함수
+    const formatTime = (time) => {
+        const minutes = Math.floor(time / 60);
+        const seconds = time % 60;
+        return `${minutes}:${seconds.toString().padStart(2, '0')}`;
+    };
+
+    // 남은 시간에 따라 텍스트 색상 및 애니메이션 클래스를 결정하는 함수
+    const getTimeStyle = () => {
+        if (remainingTime <= 30) {
+            return "timer-text-alert animate-pulse"; // Tailwind CSS의 애니메이션 효과 사용
+        }
+        return "timer-text-normal";
+    };
+
     return (
         <div className="p-12 md:p-12 min-h-screen overflow-y-auto max-h-screen flex flex-col items-center bg-black background-2">
-            <div className="timer-bar" style={{ width: `${progressWidth}%` }}></div> {/* 진행 바 추가 */}
+            <div className="timer-bar-container" style={{ position: 'fixed', top: '5px', left: '50%', transform: 'translateX(-50%)', width: '320px', zIndex: '1000'}}>
+                <div style={{ width: `${progressWidth}%`, height: '20px', backgroundColor: '#8ff90e', borderRadius: '5px', transition: 'width 1s ease-in-out'}}></div>
+            </div>
+            <div style={{ position: 'fixed', top: '30px', left: '50%', transform: 'translateX(-50%)', zIndex: '1000' }}>
+                <div className={`font-lab-digital flex justify-center items-center ${getTimeStyle()} w-24`} style={{ padding: '2px 4px', backgroundColor: '#fff', borderRadius: '10px'}}>
+                    {formatTime(remainingTime)}
+                </div>
+            </div>
             <div className="image-container pl-4 pr-4 pt-2 mt-2">
                 <p className="mt-28">1. 다음은 근로기준법 규정 중 일부이다. ( ) 안에 들어갈 말로 가장 적절한 것은?</p>
                 <div className="question-box">
@@ -71,9 +93,24 @@ function Page2Test() {
                     <div onClick={() => handleOptionSelect1('C')} className={`option mb-1 text-left ${selectedOption1 === 'C' ? 'text-red-500' : 'text-black'}`}>③ 12일</div>
                     <div onClick={() => handleOptionSelect1('D')} className={`option text-left ${selectedOption1 === 'D' ? 'text-red-500' : 'text-black'}`}>④ 13일</div>
                 </div>
-                {isSubmitted && (
-                    <div className="text-red-500 mb-8">
-                        <p>1번의 정답은 16일이었습니다.</p>
+                {isSubmitted && selectedOption1 === 'A' && (
+                    <div className="text-red-500 mb-12">
+                        <p>틀렸습니다! 정답은 16일입니다. <br/> 만약 현실이였다면 독파민 때문에 6일의 연차를 잃어버렸습니다!</p>
+                    </div>
+                )}
+                {isSubmitted && selectedOption1 === 'B' && (
+                    <div className="text-red-500 mb-12">
+                        <p>틀렸습니다! 정답은 16일입니다. <br/> 만약 현실이였다면 독파민 때문에 5일의 연차를 잃어버렸습니다!</p>
+                    </div>
+                )}
+                {isSubmitted && selectedOption1 === 'C' && (
+                    <div className="text-red-500 mb-12">
+                        <p>틀렸습니다! 정답은 16일입니다. <br/> 만약 현실이였다면 독파민 때문에 4일의 연차를 잃어버렸습니다!</p>
+                    </div>
+                )}
+                {isSubmitted && selectedOption1 === 'D' && (
+                    <div className="text-red-500 mb-12">
+                        <p>틀렸습니다! 정답은 16일입니다. <br/> 만약 현실이였다면 독파민 때문에 3일의 연차를 잃어버렸습니다!</p>
                     </div>
                 )}
                 <p>2. 다음은 근로기준법 규정 중 일부이다. ( ) 안에 들어갈 말로 가장 적절한 것은?</p>
@@ -93,12 +130,27 @@ function Page2Test() {
                 <div className="mb-4">
                     <div onClick={() => handleOptionSelect2('A')} className={`option mt-4 mb-1 text-left ${selectedOption2 === 'A' ? 'text-red-500' : 'text-black'}`}>① 70만원</div>
                     <div onClick={() => handleOptionSelect2('B')} className={`option mb-1 text-left ${selectedOption2 === 'B' ? 'text-red-500' : 'text-black'}`}>② 90만원</div>
-                    <div onClick={() => handleOptionSelect2('C')} className={`option mb-1 text-left ${selectedOption2 === 'C' ? 'text-red-500' : 'text-black'}`}>③ 120만원</div>
-                    <div onClick={() => handleOptionSelect2('D')} className={`option text-left ${selectedOption2 === 'D' ? 'text-red-500' : 'text-black'}`}>④ 135만원</div>
+                    <div onClick={() => handleOptionSelect2('C')} className={`option mb-1 text-left ${selectedOption2 === 'C' ? 'text-red-500' : 'text-black'}`}>③ 105만원</div>
+                    <div onClick={() => handleOptionSelect2('D')} className={`option text-left ${selectedOption2 === 'D' ? 'text-red-500' : 'text-black'}`}>④ 120만원</div>
                 </div>
-                {isSubmitted && (
+                {isSubmitted && selectedOption2 === 'A' && (
                     <div className="text-red-500 mt-4 mb-4">
-                        <p>2번의 정답은 130만원이었습니다.</p>
+                        <p>틀렸습니다! 정답은 130만원입니다. <br/> 만약 현실이였다면 독파민 때문에 60만원을 잃어버렸습니다!</p>
+                    </div>
+                )}
+                {isSubmitted && selectedOption2 === 'B' && (
+                    <div className="text-red-500 mt-4 mb-4">
+                        <p>틀렸습니다! 정답은 130만원입니다. <br/> 만약 현실이였다면 독파민 때문에 40만원을 잃어버렸습니다!</p>
+                    </div>
+                )}
+                {isSubmitted && selectedOption2 === 'C' && (
+                    <div className="text-red-500 mt-4 mb-4">
+                        <p>틀렸습니다! 정답은 130만원입니다. <br/> 만약 현실이였다면 독파민 때문에 25만원을 잃어버렸습니다!</p>
+                    </div>
+                )}
+                {isSubmitted && selectedOption2 === 'D' && (
+                    <div className="text-red-500 mt-4 mb-4">
+                        <p>틀렸습니다! 정답은 130만원입니다. <br/> 만약 현실이였다면 독파민 때문에 10만원을 잃어버렸습니다!</p>
                     </div>
                 )}
                 <button onClick={handleSubmit} className="font-DNFBitBitv2 button mt-5 mb-16 px-4 py-2 border rounded" style={{background: "linear-gradient(#75BF42, #A3CC40)", width: "fit-content", color: "white"}}>{isSubmitted ? "다음 페이지로 이동하기" : "체점하기"}</button>

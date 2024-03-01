@@ -49,7 +49,7 @@ function Page3Result() {
 
     return (
         <div className="min-h-screen p-4 overflow-y-auto max-h-screen flex flex-col items-center bg-black" style={{backgroundColor: "#514d4c"}}>
-            <img className="mb-4 object-contain" src={typeImages[validTypeNumber]} alt={`Type ${validTypeNumber}`} />
+            <img className="mb-4 w-80 object-contain" src={typeImages[validTypeNumber]} alt={`Type ${validTypeNumber}`} />
             {/* <div className="my-2 mb-8 w-full text-center">
                 {sortedScores.map(([typeNumber, score]) => (
                     <span key={typeNumber} className="inline-block font-DNFBitBitv2 border border-white bg-transparent px-6 py-2 m-1 text-white transition duration-300 ease-in-out">

@@ -40,7 +40,7 @@ function Page2() {
                         }}>
                             에러<br/>
                         </h1>
-                        <p className="text-center" style={{color: "#A3CC40"}}>
+                        <p className="text-center mb-4" style={{color: "#A3CC40"}}>
                             [ Error ]
                         </p>
                         {errorImages.map(image => (
@@ -58,10 +58,12 @@ function Page2() {
                             />
                         ))}
                         <p className="text-center mb-6" style={{color: "#ffffff"}}>
-                            <span style={{color: "#A3CC40"}}>독파민</span>은 이미 <span style={{color: "#A3CC40"}}>우리의 삶 속에 스며들어</span><br/>
-                            <span style={{color: "#A3CC40"}}>읽기 능력을 손상</span>시키고 있습니다. <br/>
+                            독파민은 <span style={{color: "#A3CC40"}}>(독서 : 읽기)</span>뿐만 아니라<br/>
+                            나의 <span style={{color: "#A3CC40"}}>관계 / 교육 / 행동 / 성장</span>을<br/>
+                            방해하고 있습니다.<br/><br/>
                             다음 <span style={{color: "#A3CC40"}}>문해력 테스트</span>를 통해 <br/>
-                            <span style={{color: "#A3CC40"}}>나의 뇌구조에 에러</span>가 없는지 확인해 보세요
+                            <span style={{color: "#A3CC40"}}>나의 뇌에는 에러</span>가 없는디 <br/>
+                            확인해 보세요.
                         </p>
                         <Link to="/page2test">
                             <button className="font-DNFBitBitv2 button-active mt-2 mb-8 px-6 py-2 border rounded hover:bg-gray-500 hover:text-white active:bg-gray-700 active:text-white transition duration-300 ease-in-out"

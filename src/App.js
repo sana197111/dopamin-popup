@@ -13,6 +13,7 @@ import { Page2Test } from './components/Page2Test';
 import { Page3Test } from './components/Page3Test';
 import { Page3Question } from './components/Page3Question';
 import { Page3Result } from './components/Page3Result';
+import { Page4Result } from './components/Page4Result';
 import { Consultant } from './components/Consultant';
 import './App.css';
 
@@ -39,8 +40,9 @@ function AppRoutes() {
         <Route path="/page4" element={<  Page4 />} />
         <Route path="/page2test" element={<  Page2Test />} />
         <Route path="/page3test" element={<  Page3Test />} />
-        <Route path="/page3question/:typeNumber" element={<Page3Question />} />
-        <Route path="/page3result/:typeNumber" element={<Page3Result />} />
+        <Route path="/page3question/:typeNumber" element={< Page3Question />} />
+        <Route path="/page3result/:typeNumber" element={< Page3Result />} />
+        <Route path="/page4result" element={< Page4Result />} />
         <Route path="/consultant" element={<  Consultant />} />
       </Routes>
   );
