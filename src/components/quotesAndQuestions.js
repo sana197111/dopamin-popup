@@ -43,6 +43,8 @@ const quotesAndQuestions = {
         question: (
             <>
                 목표를 달성하기 위해 어떤 것까지 해보았나요?
+                <br />
+                목표를 이루지 못했을 때 어떤 생각, 감정이 드나요?
             </>
         ),
         imageUrl: question3
@@ -59,7 +61,7 @@ const quotesAndQuestions = {
             <>
                 당신에게 고독이란 무엇인가요?
                 <br />
-                스스로를 외롭게 만다는 생각이 있다면?
+                스스로를 외롭게 만드는 생각이 있다면?
             </>
         ),
         imageUrl: question4
