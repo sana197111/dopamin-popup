@@ -20,7 +20,7 @@ function Barcode() {
     53918423: type3,
     53917433: type4,
     53916488: type5,
-    53919864: type6,
+    53919863: type6,
     53914417: type7,
     53910122: type8,
     53917680: type9,
